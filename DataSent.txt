@@ -1,0 +1,81 @@
+-- 1. Create a table
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    HireDate DATE
+);
+
+-- 2. Insert data into Employees table
+INSERT INTO Employees (EmployeeID, FirstName, LastName, HireDate) VALUES
+(1, 'John', 'Doe', '2024-01-15'),
+(2, 'Jane', 'Smith', '2023-03-22');
+
+-- 3. Select all employees
+SELECT * FROM Employees;
+
+-- 4. Update an employee's last name
+UPDATE Employees SET LastName = 'Johnson' WHERE EmployeeID = 1;
+
+-- 5. Delete an employee
+DELETE FROM Employees WHERE EmployeeID = 2;
+
+-- 6. Create a new table for departments
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(50)
+);
+
+-- 7. Insert data into Departments table
+INSERT INTO Departments (DepartmentID, DepartmentName) VALUES
+(1, 'HR'),
+(2, 'IT');
+
+-- 8. Select all departments
+SELECT * FROM Departments;
+
+-- 9. Update a department's name
+UPDATE Departments SET DepartmentName = 'Human Resources' WHERE DepartmentID = 1;
+
+-- 10. Delete a department
+DELETE FROM Departments WHERE DepartmentID = 2;
+
+-- 11. Create a table for projects
+CREATE TABLE Projects (
+    ProjectID INT PRIMARY KEY,
+    ProjectName VARCHAR(100),
+    StartDate DATE,
+    EndDate DATE
+);
+
+-- 12. Insert data into Projects table
+INSERT INTO Projects (ProjectID, ProjectName, StartDate, EndDate) VALUES
+(1, 'Project A', '2024-02-01', '2024-12-31'),
+(2, 'Project B', '2024-03-01', '2024-11-30');
+
+-- 13. Select all projects
+SELECT * FROM Projects;
+
+-- 14. Update a project's end date
+UPDATE Projects SET EndDate = '2024-11-15' WHERE ProjectID = 1;
+
+-- 15. Delete a project
+DELETE FROM Projects WHERE ProjectID = 2;
+
+-- 16. Add a foreign key to Employees table
+ALTER TABLE Employees
+ADD DepartmentID INT,
+ADD CONSTRAINT FK_Department FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID);
+
+-- 17. Update employee's department
+UPDATE Employees SET DepartmentID = 1 WHERE EmployeeID = 1;
+
+-- 18. Create an index on Employee's LastName
+CREATE INDEX idx_lastname ON Employees (LastName);
+
+-- 19. Select employees with a specific department
+SELECT * FROM Employees WHERE DepartmentID = 1;
+
+-- 20. Drop an index
+DROP INDEX idx_lastname ON Employees;
+
