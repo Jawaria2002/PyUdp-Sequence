@@ -1,8 +1,6 @@
 # PyUdp-Sequence
 
 
-When naming and describing your project in a README file, it’s important to be clear and informative. Here’s a template you can use for your README, including a suggested project name and sections to describe your project:
-
 File Transfer Protocol Using UDP
 Project Overview
 This project demonstrates a simple file transfer protocol using UDP (User Datagram Protocol). It includes both client and server scripts for sending and receiving files, and showcases basic functionality for file transfer reliability and handling.
